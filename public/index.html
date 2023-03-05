@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <META HTTP-EQUIV="Content-type" CONTENT="text/html">
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <script>
+    function timestamp() { var response = document.getElementById("g-recaptcha-response"); if (response == null || response.value.trim() == "") { var elems = JSON.parse(document.getElementsByName("captcha_settings")[0].value); elems["ts"] = JSON.stringify(new Date().getTime()); document.getElementsByName("captcha_settings")[0].value = JSON.stringify(elems); } } setInterval(timestamp, 500); 
+  </script>
+
+  <title>Web To Lead Form</title>
+
+  <!-- update the version number as needed -->
+  <script defer src="/__/firebase/9.17.2/firebase-app-compat.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/9.17.2/firebase-auth-compat.js"></script>
+  <script defer src="/__/firebase/9.17.2/firebase-database-compat.js"></script>
+  <script defer src="/__/firebase/9.17.2/firebase-firestore-compat.js"></script>
+  <script defer src="/__/firebase/9.17.2/firebase-functions-compat.js"></script>
+  <script defer src="/__/firebase/9.17.2/firebase-messaging-compat.js"></script>
+  <script defer src="/__/firebase/9.17.2/firebase-storage-compat.js"></script>
+  <script defer src="/__/firebase/9.17.2/firebase-analytics-compat.js"></script>
+  <script defer src="/__/firebase/9.17.2/firebase-remote-config-compat.js"></script>
+  <script defer src="/__/firebase/9.17.2/firebase-performance-compat.js"></script>
+  <!-- 
+      initialize the SDK after all desired features are loaded, set useEmulator to false
+      to avoid connecting the SDK to running emulators.
+    -->
+  <script defer src="/__/firebase/init.js?useEmulator=true"></script>
+
+  <style media="screen">
+    body {
+      display: flex;
+      margin-left: 50px;
+    }
+
+    input[type=text],
+    input[type=email],
+    input[type=tel] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+
+    input[type=submit] {
+      background-color: #21bd84;
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+
+    select {
+      width: 100%;
+      padding: 16px 20px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="https://webto.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+
+    <input type=hidden name='captcha_settings'
+      value='{"keyname":"Form","fallback":"true","orgId":"00D2w00000Pgw1b","ts":""}'>
+    <input type=hidden name="oid" value="00D2w00000Pgw1b">
+    <input type=hidden name="retURL" value="http://saleforce.com">
+
+    <label for="company">Company</label><input required id="company" maxlength="40" name="company" size="20"
+      type="text" />
+    <br>
+
+    <label for="first_name">First Name</label><input required id="first_name" maxlength="40" name="first_name" size="20"
+      type="text" /><br>
+
+    <label for="last_name">Last Name</label><input required id="last_name" maxlength="80" name="last_name" size="20"
+      type="text" /><br>
+
+    <label for="email">Email</label><input required id="email" maxlength="80" name="email" size="20" type="email" />
+    <br>
+
+    <label for="phone">Phone</label><input placeholder="Example:+375441234567" required pattern="^\+\d{2}\s\(\d{3}\)\s\d{3}\-\d{4}$" id="phone" maxlength="40" name="phone" size="20" type="tel" />
+    <br>
+
+    <label for="00N2w00000TazoM">Product</label>
+    <select required id="00N2w00000TazoM" name="00N2w00000TazoM" type="text">
+      <script src="index.js"></script>
+    </select>
+    <br>
+
+    <div class="g-recaptcha" data-sitekey="6LeKqNEkAAAAAGsFp3DwUSnHvWLzpmULptnqCsV_"></div>
+    <br>
+    <input type="submit" name="submit">
+
+  </form>
+
+
+</body>
+
+</html>
